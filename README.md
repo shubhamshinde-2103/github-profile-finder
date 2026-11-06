@@ -1,16 +1,77 @@
-# React + Vite
+# GitHub Profile Finder
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A React-based web application that allows users to search for GitHub profiles and explore their public repositories using the GitHub REST API.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Search GitHub users by username.
+- View profile information, avatar, bio, and location.
+- Display followers, following, and public repository count.
+- Explore public repositories.
+- Sort repositories by most recent updates or highest stars.
+- View GitHub profiles and individual repositories.
+- Loading and error handling.
+- Search using the Enter key.
+- Responsive design for mobile and desktop screens.
 
-## React Compiler
+## Screenshots
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### GitHub Profile
 
-## Expanding the Oxlint configuration
+![GitHub Profile](./public/screenshots/profile.png)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+### Public Repositories
+
+![Public Repositories](./public/screenshots/repositories.png)
+
+## Tech Stack
+
+- React.js
+- JavaScript
+- Tailwind CSS
+- GitHub REST API
+- Fetch API
+- React Hooks (useState)
+- Vite
+- Git and GitHub
+
+## Installation and Setup
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/shubhamshinde-2103/github-profile-finder.git
+   ```
+
+2. Navigate to the project folder:
+
+   ```bash
+   cd github-profile-finder
+   ```
+
+3. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+4. Start the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+5. Open the local URL shown in your terminal.
+
+## API Used
+
+GitHub REST API:
+
+- User Profile: `https://api.github.com/users/{username}`
+- User Repositories: `https://api.github.com/users/{username}/repos`
+
+## Author
+
+**Shubham Shinde**
+
+GitHub: [shubhamshinde-2103](https://github.com/shubhamshinde-2103)
