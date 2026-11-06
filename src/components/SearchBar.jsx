@@ -6,12 +6,18 @@ function SearchBar({title}) {
   const [username, setUsername] = useState("");
   const [userData, setUserData] = useState(null);
   const [repositories, setRepositories] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error , setError] = useState("");
 
   async function  handleSearch(){
     if(!username.trim()){
       alert("Please enter a Github username");
       return;
     }
+    setError("");
+    setUserData(null);
+    setRepositories([]);
+    setLoading(true);
     try{
       const response = await fetch(`https://api.github.com/users/${username}`);
 
@@ -30,7 +36,13 @@ function SearchBar({title}) {
       setRepositories(repodata);
       console.log(repodata)
     }catch(error){
+      setUserData(null);
+      setRepositories([]);
+      setError(error.message);
       console.log(error);
+    }
+    finally{
+      setLoading(false);
     }
    
   }
@@ -42,6 +54,11 @@ function SearchBar({title}) {
         className="w-full bg-slate-800 text-white rounded-lg px-4 py-3 border border-slate-600 focus:outline-none focus:ring-2 focus:ring-red-500"
          placeholder=' Enter Github username'
          onChange={(e)=> setUsername(e.target.value)}
+         onKeyDown={(e)=>{
+          if(e.key === "Enter"){
+            handleSearch();
+          }
+         }}
          
          />
          {userData && <ProfileCard userData={userData}/>}
@@ -49,8 +66,16 @@ function SearchBar({title}) {
          
         <button 
         onClick={handleSearch}
+        disabled={loading}
         className="bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg px-6 py-3 transition mt-4 cursor-pointer"
-        >Search</button>
+        >{loading ? "Searching..." : "Search"}
+         </button>
+
+        {error && (
+        <p className="text-red-200 text-lg mt-3 text-bold">
+        {error}
+        </p>
+        )}
     </div>
   )
 }
