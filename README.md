@@ -2,6 +2,8 @@
 
 A React-based web application that allows users to search for GitHub profiles and explore their public repositories using the GitHub REST API.
 
+**[Live Demo](https://github-profile-finder-zeta-one.vercel.app/)**
+
 ## Features
 
 - Search GitHub users by username.
